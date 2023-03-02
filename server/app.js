@@ -3,7 +3,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv')
 const port = process.env.PORT || 5500;
-const { ATLAS_URI } = process.env;
 var router = express.Router();
 const app = express();
 
@@ -14,7 +13,7 @@ app.use(express.json())
 
 //route config 추가
 app.use("/api/posts", require("./routes/posts"));
-app.use("/api/users", require("./routes/users"));
+app.use("/", require("./routes/users"));
 app.use("/api/", require("./routes/comments"));
 
 // connect to mongoDB server
